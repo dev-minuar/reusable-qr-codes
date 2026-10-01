@@ -46,7 +46,7 @@ The QR code contains a permanent link to your WordPress site, which then redirec
 * ✅ **QR Code Block** - Show any QR code on a page, with caption and download button
 * ✅ **Scan Counter** - See how often each code is scanned, without tracking people
 * ✅ **Privacy Friendly** - No personal data, no cookies, no external calls
-* ✅ **Translation Ready** - Fully internationalized
+* ✅ **Translation Ready** - Fully internationalized, with German, Spanish and French included
 * ✅ **Clean Code** - WordPress coding standards compliant
 
 = Technical Details =
@@ -62,7 +62,7 @@ The QR code contains a permanent link to your WordPress site, which then redirec
 1. Upload the plugin files to `/wp-content/plugins/reusable-qr-codes/` or install via WordPress plugin installer
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to 'QR Codes' in your admin menu to create your first QR code
-4. Configure default settings under Settings → QR Codes (optional)
+4. Configure default settings under QR Codes → Settings (optional)
 
 == Frequently Asked Questions ==
 
@@ -72,7 +72,7 @@ No! This plugin is completely self-contained and works entirely within your Word
 
 = Can I really change where the QR code points without reprinting it? =
 
-Yes! That's the whole point. The QR code contains a permanent URL on your site (like `yoursite.com/qr/museum-exhibit-1/`). When someone scans it, they're instantly redirected to whatever destination URL you've set. Change that destination anytime in WordPress.
+Yes! That's the whole point. The QR code contains a permanent URL on your site (like `yoursite.com/rqrc/museum-exhibit-1/`). When someone scans it, they're instantly redirected to whatever destination URL you've set. Change that destination anytime in WordPress.
 
 = How many QR codes can I create? =
 
@@ -112,7 +112,7 @@ Deleting the plugin from the Plugins screen permanently removes all QR codes and
 
 = Can I export/import QR codes? =
 
-Not currently. This is planned for a future version.
+Not currently.
 
 == Screenshots ==
 
@@ -140,6 +140,12 @@ Not currently. This is planned for a future version.
 * Tweak: Tested up to WordPress 7.1
 * Tweak: Removed references to a Premium version
 * Tweak: Added an FAQ entry explaining that deleting the plugin removes all QR codes
+
+= 1.0.1 =
+* First release on WordPress.org
+* New: Quick active/inactive toggle in the QR code list
+* Security: Stricter input sanitization and a rate limit on the status toggle
+* Tweak: Plugin Check fixes
 
 = 1.0.0 =
 * Initial release
