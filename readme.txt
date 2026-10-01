@@ -1,6 +1,6 @@
 === Reusable QR Codes ===
 Contributors: minuar
-Tags: qr code, redirect, dynamic qr, qr manager, url shortener
+Tags: qr code, dynamic qr code, qr code generator, redirect, url shortener
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -8,120 +8,77 @@ Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Create reusable QR codes with changeable destinations. Perfect for museums, retail, events, and anywhere physical QR codes need to stay relevant.
+Print a QR code once and change where it points at any time. Optional logo, a QR Code block and a privacy-friendly scan counter.
 
 == Description ==
 
-**The Problem:** You print QR codes, hang them up, and when you need to change where they point, you have to reprint and replace them. Expensive, wasteful, and time-consuming.
+A printed QR code usually points to one fixed address. When that address changes, the sign, menu or label has to be reprinted.
 
-**The Solution:** Reusable QR Codes creates permanent QR codes that you can update anytime without reprinting!
+Reusable QR Codes points each code at a permanent address on your own site, which then redirects to any destination you choose. Change the destination in WordPress and every printed copy follows, with no reprint. Museums use it for exhibit labels, restaurants for menus, shops for promotions, and event organisers for schedules.
 
-= How It Works =
+= Features =
 
-1. Create a QR Code and set a destination URL
-2. Download and print/share the QR code
-3. Visitors scan the code and get redirected to your destination
-4. **Update the destination anytime** without reprinting the QR code!
+* **Change the destination at any time**, as often as you like
+* **Optional logo** in the centre: a site logo or a custom image, chosen per QR code
+* **QR Code block** to show a code on any page, with an optional caption and download button
+* **Scan counter** per code, with the date of the last scan
+* **Print-ready downloads** as PNG (1024×1024) or SVG
+* **Your own look**: colours and dot styles
+* **Turn a code off** without deleting it; it then sends visitors to your home page
+* **Translated** into German, Spanish and French
 
-The QR code contains a permanent link to your WordPress site, which then redirects to wherever you want. Change the destination as many times as you need - the physical QR code never changes.
-
-= Perfect For =
-
-* **Museums & Galleries** - Update exhibit information without reprinting signs
-* **Retail Stores** - Change product details, promotions, and seasonal content
-* **Restaurants** - Update menus, daily specials, or seasonal offerings
-* **Event Organizers** - Modify schedules, speaker info, or venue details
-* **Real Estate** - Update property information and availability
-* **Education** - Link to current classroom resources and materials
-* **Tourism** - Keep landmark and trail information fresh
-
-= Key Features =
-
-* ✅ **Unlimited QR Codes** - Create as many as you need
-* ✅ **Easy Destination Management** - Simple URL field, change anytime
-* ✅ **High Quality Downloads** - PNG (1024x1024) and SVG formats
-* ✅ **Customizable Appearance** - Colors, dot styles, and sizes
-* ✅ **No Dependencies** - Works standalone, no external services
-* ✅ **Optional Logo** - Site logo or a custom image in the centre, chosen per QR code
-* ✅ **QR Code Block** - Show any QR code on a page, with caption and download button
-* ✅ **Scan Counter** - See how often each code is scanned, without tracking people
-* ✅ **Privacy Friendly** - No personal data, no cookies, no external calls
-* ✅ **Translation Ready** - Fully internationalized, with German, Spanish and French included
-* ✅ **Clean Code** - WordPress coding standards compliant
-
-= Technical Details =
-
-* Lightweight and performant - small database footprint
-* Conditional asset loading - scripts only when needed
-* Secure - nonces, capability checks, input sanitization
-* Follows WordPress coding standards
-* Uses native WordPress functions (no bloat!)
+Everything runs on your own site: no account, no API key, no external service and no fees.
 
 == Installation ==
 
-1. Upload the plugin files to `/wp-content/plugins/reusable-qr-codes/` or install via WordPress plugin installer
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to 'QR Codes' in your admin menu to create your first QR code
-4. Configure default settings under QR Codes → Settings (optional)
+1. Install the plugin from Plugins → Add New, or upload it to `/wp-content/plugins/`, then activate it.
+2. Open **QR Codes** in the admin menu and add your first code.
+3. Optional: set colours, dot style and a site logo under **QR Codes → Settings**.
 
 == Frequently Asked Questions ==
 
-= Do I need any external services or API keys? =
+= How does the code keep working when I change the destination? =
 
-No! This plugin is completely self-contained and works entirely within your WordPress installation. No external dependencies, no API keys, no recurring fees.
-
-= Can I really change where the QR code points without reprinting it? =
-
-Yes! That's the whole point. The QR code contains a permanent URL on your site (like `yoursite.com/rqrc/museum-exhibit-1/`). When someone scans it, they're instantly redirected to whatever destination URL you've set. Change that destination anytime in WordPress.
+The code contains an address on your site, such as `yoursite.com/rqrc/museum-entrance/`. That address never changes. When someone scans it, WordPress redirects them to the destination you set.
 
 = How many QR codes can I create? =
 
-Unlimited! Create as many as you need.
+As many as you need.
 
-= What formats can I download? =
+= Can I add my logo? =
 
-PNG (high resolution 1024x1024px) and SVG (vector, scales to any size). Both are perfect for printing.
+Yes. Set a site logo under QR Codes → Settings, then choose per code: no logo, the site logo or a custom image. Codes with a logo use the highest error correction, so they still scan reliably.
 
-= Will this slow down my site? =
+= How does the scan counter work? =
 
-No. The plugin is very lightweight and only loads assets when needed. The redirect stays fast. Each counted scan updates one counter in the database.
+Each visit to a code's address adds one to its count, and the edit screen shows the last scan date. Logged-in users, bots and link previews are not counted.
 
-= Can I use my own logo in the QR code? =
+Two cases can lower the count: a host that caches redirects before WordPress runs, and the 301 redirect type, because phones remember a permanent redirect. The default 302 counts every scan.
 
-Yes. Set a site logo under QR Codes → Settings, then choose per QR code: no logo, the site logo or a custom image. Codes with a logo use the highest error correction, so they still scan.
+= Can I show a QR code on my site? =
 
-= Can I track how many times a QR code was scanned? =
+Yes. Add the QR Code block to any post or page, choose a code and set its size.
 
-Yes. Each QR code counts its scans and shows the count and the last scan date. Logged-in users, bots and link previews are not counted. No personal data is stored: no IP addresses, no cookies. If your host caches redirects at the edge, some scans may not reach WordPress and are not counted. With the 301 (permanent) redirect type, phones may remember the redirect, so repeat scans from the same phone are not counted; the default 302 counts every scan.
+= Does it work with my theme? =
 
-= Does this work with block themes? =
+Yes, with both block themes and classic themes.
 
-Yes! The plugin works with both classic and block themes.
+= Will it slow down my site? =
 
-= Can I display QR codes on the frontend? =
+No. Scripts load only on the screens and pages that need them, and a scan costs one redirect and one small database update.
 
-Yes. Add the QR Code block to any post or page, pick a QR code, and set its size. You can show a caption and a download button.
+= What happens if I delete a QR code, or the plugin? =
 
-= What happens if I delete a QR code post? =
-
-The QR code will stop working - visitors will see a 404 error. Only delete QR codes you're sure you don't need anymore.
-
-= What happens if I uninstall the plugin? =
-
-Deleting the plugin from the Plugins screen permanently removes all QR codes and settings, so every printed QR code stops working. Deactivating the plugin keeps your data.
-
-= Can I export/import QR codes? =
-
-Not currently.
+A deleted code stops working: anyone who scans it gets a "not found" page. Deleting the plugin from the Plugins screen removes all codes and settings, so every printed code stops working. Deactivating the plugin keeps your data.
 
 == Screenshots ==
 
-1. QR Code listing page - manage all your QR codes
-2. Edit QR code - set destination URL and preview
-3. QR code preview with download buttons
-4. Settings page - customize default appearance
-5. Frontend fallback view when no destination is set
-6. QR code with a logo in the centre
+1. The QR code list
+2. Editing a QR code: destination, preview and downloads
+3. The preview with PNG and SVG downloads
+4. Settings: colours, dot style and redirect type
+5. The page visitors see when a code has no destination yet
+6. A QR code with a logo in the centre
 7. The QR Code block in the editor
 8. Scan counts in the QR code list
 
@@ -162,26 +119,8 @@ Not currently.
 = 1.1.0 =
 Adds an optional logo, a QR Code block and a privacy-friendly scan counter. Existing QR codes are unchanged.
 
-= 1.0.0 =
-Initial release of Reusable QR Codes. Create reusable QR codes with changeable destinations!
+== Privacy ==
 
-== Privacy Policy ==
+The plugin stores no personal data: no IP addresses, no cookies and no user agents. For each QR code it stores only a scan count and the date of the last scan. It makes no external requests.
 
-This plugin does not:
-* Collect any personal data
-* Use cookies
-* Make external API calls
-* Track users
-* Store IP addresses
-
-For each QR code it stores only a scan count and the date of the last scan.
-
-== Support ==
-
-For support, feature requests, or bug reports:
-* [WordPress.org support forums](https://wordpress.org/support/plugin/reusable-qr-codes/)
-
-== Credits ==
-
-* QR Code generation powered by [QR Code Styling](https://github.com/kozakdenys/qr-code-styling)
-* Developed by Minuar
+QR codes are drawn with the open-source [QR Code Styling](https://github.com/kozakdenys/qr-code-styling) library, bundled with the plugin.
