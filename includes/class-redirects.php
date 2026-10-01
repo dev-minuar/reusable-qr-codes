@@ -55,6 +55,11 @@ class RQRC_Redirects {
 
 		global $post;
 
+		// Count the scan (published codes only; skips logged-in users, bots and non-GET requests).
+		if ( 'publish' === $post->post_status && RQRC_Scans::should_count() ) {
+			RQRC_Scans::record( $post->ID );
+		}
+
 		// Check if QR code is active.
 		$is_active = get_post_meta( $post->ID, '_rqrc_is_active', true );
 

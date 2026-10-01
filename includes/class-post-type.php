@@ -147,6 +147,7 @@ class RQRC_Post_Type {
 
 		// Add custom columns.
 		$columns['rqrc_status']      = __( 'Status', 'reusable-qr-codes' );
+		$columns['rqrc_scans']       = __( 'Scans', 'reusable-qr-codes' );
 		$columns['rqrc_destination'] = __( 'Destination', 'reusable-qr-codes' );
 		$columns['rqrc_download']    = __( 'Download', 'reusable-qr-codes' );
 
@@ -183,6 +184,11 @@ class RQRC_Post_Type {
 					</span>
 				</div>
 				<?php
+				break;
+
+			case 'rqrc_scans':
+				echo '<strong>' . esc_html( number_format_i18n( RQRC_Scans::get_count( $post_id ) ) ) . '</strong><br />';
+				echo '<span class="rqrc-scans-last">' . esc_html( RQRC_Scans::get_last_label( $post_id ) ) . '</span>';
 				break;
 
 			case 'rqrc_destination':

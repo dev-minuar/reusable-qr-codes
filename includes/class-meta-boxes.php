@@ -86,6 +86,16 @@ class RQRC_Meta_Boxes {
 			'side',
 			'default'
 		);
+
+		// Scans meta box (sidebar).
+		add_meta_box(
+			'rqrc_scans',
+			__( 'Scans', 'reusable-qr-codes' ),
+			array( $this, 'render_scans_meta_box' ),
+			'rqrc_item',
+			'side',
+			'default'
+		);
 	}
 
 	/**
@@ -216,6 +226,32 @@ class RQRC_Meta_Boxes {
 					<?php esc_html_e( 'Download SVG', 'reusable-qr-codes' ); ?>
 				</a>
 			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render scans meta box.
+	 *
+	 * @param WP_Post $post Current post object.
+	 */
+	public function render_scans_meta_box( $post ) {
+		$last = RQRC_Scans::get_last( $post->ID );
+		?>
+		<div class="rqrc-scans" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
+			<p class="rqrc-scans-count"><strong><?php echo esc_html( number_format_i18n( RQRC_Scans::get_count( $post->ID ) ) ); ?></strong></p>
+			<p class="rqrc-scans-last">
+				<?php
+				echo esc_html(
+					'' === $last
+						? __( 'Never scanned', 'reusable-qr-codes' )
+						/* translators: %s: date and time of the last scan */
+						: sprintf( __( 'Last scan: %s', 'reusable-qr-codes' ), get_date_from_gmt( $last, get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) )
+				);
+				?>
+			</p>
+			<p class="description"><?php esc_html_e( 'Counts scans by visitors. Logged-in users, bots and link previews are not counted.', 'reusable-qr-codes' ); ?></p>
+			<p><button type="button" class="button rqrc-scans-reset"><?php esc_html_e( 'Reset', 'reusable-qr-codes' ); ?></button></p>
 		</div>
 		<?php
 	}
@@ -377,6 +413,25 @@ class RQRC_Meta_Boxes {
 				'siteLogoUrl' => RQRC_Logo::image_url( RQRC_Logo::get_site_logo_id() ),
 				'logoTitle'   => __( 'Select QR Code Logo', 'reusable-qr-codes' ),
 				'logoButton'  => __( 'Use this image', 'reusable-qr-codes' ),
+			)
+		);
+
+		// Scan counter reset.
+		wp_enqueue_script(
+			'rqrc-scans',
+			RQRC_PLUGIN_URL . 'admin/js/scans.js',
+			array( 'jquery' ),
+			RQRC_VERSION,
+			true
+		);
+		wp_localize_script(
+			'rqrc-scans',
+			'rqrcScans',
+			array(
+				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce( 'rqrc_reset_scans' ),
+				'confirm' => __( 'Reset the scan count of this QR code to 0?', 'reusable-qr-codes' ),
+				'failed'  => __( 'Could not reset the scan count. Please try again.', 'reusable-qr-codes' ),
 			)
 		);
 
