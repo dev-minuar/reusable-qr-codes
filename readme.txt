@@ -51,7 +51,7 @@ The QR code contains a permanent link to your WordPress site, which then redirec
 
 = Technical Details =
 
-* Lightweight and performant - minimal database impact
+* Lightweight and performant - small database footprint
 * Conditional asset loading - scripts only when needed
 * Secure - nonces, capability checks, input sanitization
 * Follows WordPress coding standards
@@ -84,7 +84,7 @@ PNG (high resolution 1024x1024px) and SVG (vector, scales to any size). Both are
 
 = Will this slow down my site? =
 
-No. The plugin is very lightweight and only loads assets when needed. The redirect happens instantly with minimal database queries.
+No. The plugin is very lightweight and only loads assets when needed. The redirect stays fast. Each counted scan updates one counter in the database.
 
 = Can I use my own logo in the QR code? =
 
@@ -152,6 +152,9 @@ Not currently. This is planned for a future version.
 * Clean, WordPress-compliant code
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Adds an optional logo, a QR Code block and a privacy-friendly scan counter. Existing QR codes are unchanged.
 
 = 1.0.0 =
 Initial release of Reusable QR Codes. Create reusable QR codes with changeable destinations!
