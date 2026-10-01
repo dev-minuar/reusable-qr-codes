@@ -13,6 +13,14 @@ if ( ! defined( 'WPINC' ) ) {
 $rqrc_is_block_theme = function_exists( 'wp_is_block_theme' ) && function_exists( 'block_template_part' ) && wp_is_block_theme();
 
 if ( $rqrc_is_block_theme ) :
+	// Render the theme parts before wp_head() so scripts and modules they enqueue are printed in the head.
+	ob_start();
+	block_template_part( 'header' );
+	$rqrc_header_html = ob_get_clean();
+
+	ob_start();
+	block_template_part( 'footer' );
+	$rqrc_footer_html = ob_get_clean();
 	?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -24,7 +32,7 @@ if ( $rqrc_is_block_theme ) :
 <body <?php body_class(); ?>>
 <?php
 	wp_body_open();
-	block_template_part( 'header' );
+	echo $rqrc_header_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Markup rendered by core block_template_part().
 else :
 	get_header();
 endif;
@@ -89,7 +97,7 @@ endif;
 
 <?php
 if ( $rqrc_is_block_theme ) :
-	block_template_part( 'footer' );
+	echo $rqrc_footer_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Markup rendered by core block_template_part().
 	wp_footer();
 	?>
 </body>
