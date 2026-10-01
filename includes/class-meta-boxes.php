@@ -76,6 +76,16 @@ class RQRC_Meta_Boxes {
 			'side',
 			'high'
 		);
+
+		// Logo meta box (sidebar).
+		add_meta_box(
+			'rqrc_logo',
+			__( 'Logo', 'reusable-qr-codes' ),
+			array( $this, 'render_logo_meta_box' ),
+			'rqrc_item',
+			'side',
+			'default'
+		);
 	}
 
 	/**
@@ -211,6 +221,60 @@ class RQRC_Meta_Boxes {
 	}
 
 	/**
+	 * Render logo meta box.
+	 *
+	 * @param WP_Post $post Current post object.
+	 */
+	public function render_logo_meta_box( $post ) {
+		$mode          = RQRC_Logo::get_mode( $post->ID );
+		$custom_id     = absint( get_post_meta( $post->ID, RQRC_Logo::ID_KEY, true ) );
+		$custom_url    = RQRC_Logo::image_url( $custom_id );
+		$site_logo_url = RQRC_Logo::image_url( RQRC_Logo::get_site_logo_id() );
+		$settings_url  = admin_url( 'edit.php?post_type=rqrc_item&page=rqrc-settings' );
+		?>
+		<div class="rqrc-logo-choice">
+			<p>
+				<label>
+					<input type="radio" name="rqrc_logo_mode" value="none" <?php checked( $mode, 'none' ); ?> />
+					<?php esc_html_e( 'No logo', 'reusable-qr-codes' ); ?>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="radio" name="rqrc_logo_mode" value="site" <?php checked( $mode, 'site' ); ?> <?php disabled( '' === $site_logo_url && 'site' !== $mode ); ?> />
+					<?php esc_html_e( 'Site logo', 'reusable-qr-codes' ); ?>
+				</label>
+				<?php if ( '' === $site_logo_url ) : ?>
+					<br /><span class="description">
+						<?php
+						printf(
+							/* translators: %s: link to the settings page */
+							esc_html__( 'No site logo set. Add one in %s.', 'reusable-qr-codes' ),
+							'<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'reusable-qr-codes' ) . '</a>'
+						);
+						?>
+					</span>
+				<?php endif; ?>
+			</p>
+			<p>
+				<label>
+					<input type="radio" name="rqrc_logo_mode" value="custom" <?php checked( $mode, 'custom' ); ?> />
+					<?php esc_html_e( 'Custom image', 'reusable-qr-codes' ); ?>
+				</label>
+			</p>
+			<div class="rqrc-logo-field rqrc-logo-custom"<?php echo 'custom' === $mode ? '' : ' style="display:none;"'; ?>>
+				<input type="hidden" name="rqrc_logo_id" id="rqrc_logo_id" value="<?php echo esc_attr( $custom_url ? $custom_id : 0 ); ?>" data-url="<?php echo esc_url( $custom_url ); ?>" />
+				<div class="rqrc-logo-preview"<?php echo $custom_url ? '' : ' style="display:none;"'; ?>>
+					<img src="<?php echo esc_url( $custom_url ); ?>" alt="" />
+				</div>
+				<button type="button" class="button rqrc-logo-select"><?php esc_html_e( 'Select Image', 'reusable-qr-codes' ); ?></button>
+				<button type="button" class="button-link rqrc-logo-remove"<?php echo $custom_url ? '' : ' style="display:none;"'; ?>><?php esc_html_e( 'Remove', 'reusable-qr-codes' ); ?></button>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
 	 * Save destination URL meta data.
 	 *
 	 * @param int     $post_id Post ID.
@@ -245,6 +309,20 @@ class RQRC_Meta_Boxes {
 		$is_active = isset( $_POST['rqrc_is_active'] ) ? '1' : '0';
 		update_post_meta( $post_id, '_rqrc_is_active', $is_active );
 
+		// Save logo choice.
+		$logo_mode = isset( $_POST['rqrc_logo_mode'] ) ? sanitize_key( wp_unslash( $_POST['rqrc_logo_mode'] ) ) : 'none';
+		if ( ! in_array( $logo_mode, array( 'none', 'site', 'custom' ), true ) ) {
+			$logo_mode = 'none';
+		}
+		update_post_meta( $post_id, RQRC_Logo::MODE_KEY, $logo_mode );
+
+		$logo_id = isset( $_POST['rqrc_logo_id'] ) ? absint( $_POST['rqrc_logo_id'] ) : 0;
+		if ( 'custom' === $logo_mode && $logo_id && wp_attachment_is_image( $logo_id ) ) {
+			update_post_meta( $post_id, RQRC_Logo::ID_KEY, $logo_id );
+		} else {
+			delete_post_meta( $post_id, RQRC_Logo::ID_KEY );
+		}
+
 		// Save notes.
 		if ( isset( $_POST['rqrc_notes'] ) ) {
 			$notes = sanitize_textarea_field( wp_unslash( $_POST['rqrc_notes'] ) );
@@ -270,6 +348,8 @@ class RQRC_Meta_Boxes {
 			return;
 		}
 
+		wp_enqueue_media();
+
 		// Enqueue our generator script.
 		wp_enqueue_script(
 			'rqrc-generator',
@@ -293,6 +373,10 @@ class RQRC_Meta_Boxes {
 				'qrBgColor'   => isset( $settings['qr_bg_color'] ) ? $settings['qr_bg_color'] : '#ffffff',
 				'qrDotStyle'  => isset( $settings['qr_dot_style'] ) ? $settings['qr_dot_style'] : 'square',
 				'qrSize'      => isset( $settings['qr_size'] ) ? (int) $settings['qr_size'] : 256,
+				'logoUrl'     => RQRC_Logo::get_logo_url( $post->ID ),
+				'siteLogoUrl' => RQRC_Logo::image_url( RQRC_Logo::get_site_logo_id() ),
+				'logoTitle'   => __( 'Select QR Code Logo', 'reusable-qr-codes' ),
+				'logoButton'  => __( 'Use this image', 'reusable-qr-codes' ),
 			)
 		);
 

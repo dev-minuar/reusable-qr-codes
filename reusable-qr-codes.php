@@ -56,6 +56,7 @@ define( 'RQRC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
  * Load required files.
  */
 require_once RQRC_PLUGIN_DIR . 'includes/class-plugin.php';
+require_once RQRC_PLUGIN_DIR . 'includes/class-logo.php';
 require_once RQRC_PLUGIN_DIR . 'includes/class-post-type.php';
 require_once RQRC_PLUGIN_DIR . 'includes/class-meta-boxes.php';
 require_once RQRC_PLUGIN_DIR . 'includes/class-redirects.php';

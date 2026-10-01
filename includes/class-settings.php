@@ -109,6 +109,14 @@ class RQRC_Settings {
 			'rqrc_appearance_section'
 		);
 
+		add_settings_field(
+			'qr_logo_id',
+			__( 'Site Logo', 'reusable-qr-codes' ),
+			array( $this, 'render_logo_field' ),
+			'rqrc-settings',
+			'rqrc_appearance_section'
+		);
+
 		// Redirect Settings Section.
 		add_settings_section(
 			'rqrc_redirect_section',
@@ -159,6 +167,12 @@ class RQRC_Settings {
 		// Sanitize redirect type.
 		if ( isset( $input['redirect_type'] ) && in_array( $input['redirect_type'], array( '301', '302' ), true ) ) {
 			$sanitized['redirect_type'] = $input['redirect_type'];
+		}
+
+		// Sanitize site logo: must be an image attachment.
+		if ( isset( $input['qr_logo_id'] ) ) {
+			$logo_id                 = absint( $input['qr_logo_id'] );
+			$sanitized['qr_logo_id'] = ( $logo_id && wp_attachment_is_image( $logo_id ) ) ? $logo_id : 0;
 		}
 
 		return $sanitized;
@@ -290,6 +304,27 @@ class RQRC_Settings {
 	}
 
 	/**
+	 * Render site logo field.
+	 */
+	public function render_logo_field() {
+		$logo_id  = RQRC_Logo::get_site_logo_id();
+		$logo_url = RQRC_Logo::image_url( $logo_id );
+		?>
+		<div class="rqrc-logo-field">
+			<input type="hidden" name="rqrc_settings[qr_logo_id]" id="rqrc_site_logo_id" value="<?php echo esc_attr( $logo_url ? $logo_id : 0 ); ?>" />
+			<div class="rqrc-logo-preview"<?php echo $logo_url ? '' : ' style="display:none;"'; ?>>
+				<img src="<?php echo esc_url( $logo_url ); ?>" alt="" />
+			</div>
+			<button type="button" class="button rqrc-logo-select"><?php esc_html_e( 'Select Logo', 'reusable-qr-codes' ); ?></button>
+			<button type="button" class="button-link rqrc-logo-remove"<?php echo $logo_url ? '' : ' style="display:none;"'; ?>><?php esc_html_e( 'Remove', 'reusable-qr-codes' ); ?></button>
+		</div>
+		<p class="description">
+			<?php esc_html_e( 'Optional. Each QR code chooses whether to show this logo, a custom image or no logo. Square images work best.', 'reusable-qr-codes' ); ?>
+		</p>
+		<?php
+	}
+
+	/**
 	 * Render redirect type field.
 	 */
 	public function render_redirect_type_field() {
@@ -344,6 +379,24 @@ class RQRC_Settings {
 		// WordPress color picker.
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker' );
+
+		// Media modal for the site logo.
+		wp_enqueue_media();
+		wp_enqueue_script(
+			'rqrc-settings-logo',
+			RQRC_PLUGIN_URL . 'admin/js/settings-logo.js',
+			array( 'jquery' ),
+			RQRC_VERSION,
+			true
+		);
+		wp_localize_script(
+			'rqrc-settings-logo',
+			'rqrcLogoL10n',
+			array(
+				'title'  => __( 'Select QR Code Logo', 'reusable-qr-codes' ),
+				'button' => __( 'Use this image', 'reusable-qr-codes' ),
+			)
+		);
 
 		// Initialize color picker and info box toggle.
 		wp_add_inline_script(

@@ -208,6 +208,7 @@ class RQRC_Post_Type {
 						class="rqrc-download-list-png"
 						data-permalink="<?php echo esc_attr( $permalink ); ?>"
 						data-title="<?php echo esc_attr( $title ); ?>"
+						data-logo="<?php echo esc_url( RQRC_Logo::get_logo_url( $post_id ) ); ?>"
 						title="<?php esc_attr_e( 'Download PNG', 'reusable-qr-codes' ); ?>"
 					>
 						PNG
@@ -216,6 +217,7 @@ class RQRC_Post_Type {
 						class="rqrc-download-list-svg"
 						data-permalink="<?php echo esc_attr( $permalink ); ?>"
 						data-title="<?php echo esc_attr( $title ); ?>"
+						data-logo="<?php echo esc_url( RQRC_Logo::get_logo_url( $post_id ) ); ?>"
 						title="<?php esc_attr_e( 'Download SVG', 'reusable-qr-codes' ); ?>"
 					>
 						SVG

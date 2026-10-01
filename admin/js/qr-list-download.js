@@ -17,8 +17,9 @@
 			var $button = $(this);
 			var permalink = $button.data('permalink');
 			var title = $button.data('title');
+			var logo = $button.data('logo');
 
-			downloadQRCode(permalink, title, 'png');
+			downloadQRCode(permalink, title, 'png', logo);
 		});
 
 		// SVG download from list.
@@ -27,8 +28,9 @@
 			var $button = $(this);
 			var permalink = $button.data('permalink');
 			var title = $button.data('title');
+			var logo = $button.data('logo');
 
-			downloadQRCode(permalink, title, 'svg');
+			downloadQRCode(permalink, title, 'svg', logo);
 		});
 
 		// Status toggle from list.
@@ -84,13 +86,15 @@
 	 * @param {string} permalink The QR code URL.
 	 * @param {string} title     The QR code title.
 	 * @param {string} format    Download format (png or svg).
+	 * @param {string} logo      Logo image URL, or empty for no logo.
 	 */
-	function downloadQRCode(permalink, title, format) {
+	function downloadQRCode(permalink, title, format, logo) {
 		rqrcQr.download({
 			data: permalink,
 			color: rqrcListData.qrColor,
 			bgColor: rqrcListData.qrBgColor,
-			dotStyle: rqrcListData.qrDotStyle
+			dotStyle: rqrcListData.qrDotStyle,
+			logoUrl: logo || ''
 		}, format, title);
 	}
 

@@ -570,3 +570,22 @@
 @media (prefers-color-scheme: dark) {
 	/* Will add dark mode styles in future update */
 }
+
+/* Logo pickers (settings page and edit screen) */
+.rqrc-logo-preview {
+	margin: 8px 0;
+}
+
+.rqrc-logo-preview img {
+	display: block;
+	max-width: 96px;
+	max-height: 96px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.rqrc-logo-field .rqrc-logo-remove {
+	margin-left: 8px;
+	color: #b32d2e;
+}
