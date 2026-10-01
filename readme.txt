@@ -4,7 +4,7 @@ Tags: qr code, redirect, dynamic qr, qr manager, url shortener
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,7 +42,10 @@ The QR code contains a permanent link to your WordPress site, which then redirec
 * ✅ **High Quality Downloads** - PNG (1024x1024) and SVG formats
 * ✅ **Customizable Appearance** - Colors, dot styles, and sizes
 * ✅ **No Dependencies** - Works standalone, no external services
-* ✅ **Privacy Friendly** - No tracking, no external calls
+* ✅ **Optional Logo** - Site logo or a custom image in the centre, chosen per QR code
+* ✅ **QR Code Block** - Show any QR code on a page, with caption and download button
+* ✅ **Scan Counter** - See how often each code is scanned, without tracking people
+* ✅ **Privacy Friendly** - No personal data, no cookies, no external calls
 * ✅ **Translation Ready** - Fully internationalized
 * ✅ **Clean Code** - WordPress coding standards compliant
 
@@ -85,11 +88,11 @@ No. The plugin is very lightweight and only loads assets when needed. The redire
 
 = Can I use my own logo in the QR code? =
 
-No. The QR codes support custom colors and dot styles, but not logos.
+Yes. Set a site logo under QR Codes → Settings, then choose per QR code: no logo, the site logo or a custom image. Codes with a logo use the highest error correction, so they still scan.
 
 = Can I track how many times a QR code was scanned? =
 
-No. The plugin does not track scans, which keeps it privacy-friendly.
+Yes. Each QR code counts its scans and shows the count and the last scan date. Logged-in users, bots and link previews are not counted. No personal data is stored: no IP addresses, no cookies. If your host caches redirects at the edge, some scans may not reach WordPress and are not counted. With the 301 (permanent) redirect type, phones may remember the redirect, so repeat scans from the same phone are not counted; the default 302 counts every scan.
 
 = Does this work with block themes? =
 
@@ -97,7 +100,7 @@ Yes! The plugin works with both classic and block themes.
 
 = Can I display QR codes on the frontend? =
 
-No. The plugin focuses on backend management and downloads. Download the PNG or SVG and add it to any page as an image.
+Yes. Add the QR Code block to any post or page, pick a QR code, and set its size. You can show a caption and a download button.
 
 = What happens if I delete a QR code post? =
 
@@ -118,8 +121,16 @@ Not currently. This is planned for a future version.
 3. QR code preview with download buttons
 4. Settings page - customize default appearance
 5. Frontend fallback view when no destination is set
+6. QR code with a logo in the centre
+7. The QR Code block in the editor
+8. Scan counts in the QR code list
 
 == Changelog ==
+
+= 1.1.0 =
+* New: Optional logo in the centre of a QR code: a site logo or a custom image, chosen per QR code
+* New: QR Code block to show a QR code on any page, with size, caption and download button
+* New: Scan counter per QR code, without personal data; bots and logged-in users are not counted
 
 = 1.0.2 =
 * Fix: QR code URLs no longer appear in site search results or the XML sitemap
@@ -153,6 +164,8 @@ This plugin does not:
 * Make external API calls
 * Track users
 * Store IP addresses
+
+For each QR code it stores only a scan count and the date of the last scan.
 
 == Support ==
 
