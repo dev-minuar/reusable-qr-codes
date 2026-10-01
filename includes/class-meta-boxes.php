@@ -270,20 +270,11 @@ class RQRC_Meta_Boxes {
 			return;
 		}
 
-		// Enqueue QR code library.
-		wp_enqueue_script(
-			'rqrc-qrcode-styling',
-			RQRC_PLUGIN_URL . 'assets/vendor/QrCodeStyling.min.js',
-			array(),
-			RQRC_VERSION,
-			true
-		);
-
 		// Enqueue our generator script.
 		wp_enqueue_script(
 			'rqrc-generator',
 			RQRC_PLUGIN_URL . 'admin/js/qr-generator.js',
-			array( 'jquery', 'rqrc-qrcode-styling' ),
+			array( 'jquery', 'rqrc-qr' ),
 			RQRC_VERSION,
 			true
 		);

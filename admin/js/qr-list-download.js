@@ -86,58 +86,12 @@
 	 * @param {string} format    Download format (png or svg).
 	 */
 	function downloadQRCode(permalink, title, format) {
-		// Create QR code options.
-		var options = {
-			width: 1024,
-			height: 1024,
-			type: format === 'svg' ? 'svg' : 'canvas',
-			margin: 10,
+		rqrcQr.download({
 			data: permalink,
-			dotsOptions: {
-				color: rqrcListData.qrColor,
-				type: rqrcListData.qrDotStyle
-			},
-			backgroundOptions: {
-				color: rqrcListData.qrBgColor
-			}
-		};
-
-		// Generate QR code.
-		var qrCode = new QRCodeStyling(options);
-
-		// Download with sanitized filename.
-		qrCode.download({
-			name: sanitizeFilename(title),
-			extension: format
-		});
-	}
-
-	/**
-	 * Sanitize filename for download.
-	 *
-	 * @param {string} filename Original filename.
-	 * @return {string} Sanitized filename.
-	 */
-	function sanitizeFilename(filename) {
-		if (!filename || filename === '') {
-			return 'qr-code';
-		}
-
-		// Titles arrive HTML-entity-encoded (e.g. &#8217;), so decode them first.
-		var decoder = document.createElement('textarea');
-		decoder.innerHTML = filename;
-
-		// Strip accents, remove special characters and replace spaces with hyphens.
-		var slug = decoder.value
-			.normalize('NFD')
-			.replace(/[\u0300-\u036f]/g, '')
-			.toLowerCase()
-			.replace(/[^a-z0-9\s-]/g, '')
-			.replace(/\s+/g, '-')
-			.replace(/-+/g, '-')
-			.substring(0, 50);
-
-		return slug || 'qr-code';
+			color: rqrcListData.qrColor,
+			bgColor: rqrcListData.qrBgColor,
+			dotStyle: rqrcListData.qrDotStyle
+		}, format, title);
 	}
 
 })(jQuery);

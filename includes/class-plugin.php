@@ -38,8 +38,32 @@ class RQRC_Plugin {
 	 * Constructor.
 	 */
 	private function __construct() {
+		// Register shared scripts early so every screen and the block can depend on them.
+		add_action( 'init', array( $this, 'register_scripts' ), 5 );
+
 		// Add plugin action links.
 		add_filter( 'plugin_action_links_' . RQRC_PLUGIN_BASENAME, array( $this, 'add_action_links' ) );
+	}
+
+	/**
+	 * Register the QR library and the shared QR helper.
+	 */
+	public function register_scripts() {
+		wp_register_script(
+			'rqrc-qrcode-styling',
+			RQRC_PLUGIN_URL . 'assets/vendor/QrCodeStyling.min.js',
+			array(),
+			RQRC_VERSION,
+			true
+		);
+
+		wp_register_script(
+			'rqrc-qr',
+			RQRC_PLUGIN_URL . 'assets/js/rqrc-qr.js',
+			array( 'rqrc-qrcode-styling' ),
+			RQRC_VERSION,
+			true
+		);
 	}
 
 	/**

@@ -238,20 +238,11 @@ class RQRC_Post_Type {
 			return;
 		}
 
-		// Enqueue QR code library.
-		wp_enqueue_script(
-			'rqrc-qrcode-styling',
-			RQRC_PLUGIN_URL . 'assets/vendor/QrCodeStyling.min.js',
-			array(),
-			RQRC_VERSION,
-			true
-		);
-
 		// Enqueue list download script.
 		wp_enqueue_script(
 			'rqrc-list-download',
 			RQRC_PLUGIN_URL . 'admin/js/qr-list-download.js',
-			array( 'jquery', 'rqrc-qrcode-styling' ),
+			array( 'jquery', 'rqrc-qr' ),
 			RQRC_VERSION,
 			true
 		);
