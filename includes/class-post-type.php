@@ -81,6 +81,7 @@ class RQRC_Post_Type {
 			'labels'             => $labels,
 			'public'             => true,
 			'publicly_queryable' => true,
+			'exclude_from_search' => true,
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
@@ -106,6 +107,7 @@ class RQRC_Post_Type {
 	public function updated_messages( $messages ) {
 		global $post;
 
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only display of a core revision notice, no state change.
 		$revision_id = isset( $_GET['revision'] ) ? absint( $_GET['revision'] ) : 0;
 
 		$messages['rqrc_item'] = array(
@@ -231,8 +233,8 @@ class RQRC_Post_Type {
 	 */
 	public function enqueue_list_scripts( $hook ) {
 		// Only load on QR codes list page.
-		$post_type = isset( $_GET['post_type'] ) ? sanitize_text_field( wp_unslash( $_GET['post_type'] ) ) : '';
-		if ( 'edit.php' !== $hook || 'rqrc_item' !== $post_type ) {
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+		if ( 'edit.php' !== $hook || ! $screen || 'edit-rqrc_item' !== $screen->id ) {
 			return;
 		}
 

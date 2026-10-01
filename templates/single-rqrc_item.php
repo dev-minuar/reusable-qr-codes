@@ -10,12 +10,24 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Add noindex meta tag for search engines (fallback protection).
-add_action( 'wp_head', function() {
-	echo '<meta name="robots" content="noindex, nofollow" />' . "\n";
-}, 1 );
+$rqrc_is_block_theme = function_exists( 'wp_is_block_theme' ) && function_exists( 'block_template_part' ) && wp_is_block_theme();
 
-get_header();
+if ( $rqrc_is_block_theme ) :
+	?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php
+	wp_body_open();
+	block_template_part( 'header' );
+else :
+	get_header();
+endif;
 ?>
 
 <div id="primary" class="content-area">
@@ -76,4 +88,13 @@ get_header();
 </div>
 
 <?php
-get_footer();
+if ( $rqrc_is_block_theme ) :
+	block_template_part( 'footer' );
+	wp_footer();
+	?>
+</body>
+</html>
+	<?php
+else :
+	get_footer();
+endif;

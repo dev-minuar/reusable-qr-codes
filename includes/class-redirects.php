@@ -41,6 +41,7 @@ class RQRC_Redirects {
 		add_action( 'template_redirect', array( $this, 'handle_redirect' ) );
 		add_filter( 'template_include', array( $this, 'load_fallback_template' ) );
 		add_filter( 'wp_robots', array( $this, 'add_noindex_robots' ) );
+		add_filter( 'wp_sitemaps_post_types', array( $this, 'exclude_from_sitemaps' ) );
 	}
 
 	/**
@@ -64,7 +65,7 @@ class RQRC_Redirects {
 
 		// If inactive, redirect to homepage.
 		if ( '0' === $is_active ) {
-			wp_redirect( home_url(), 302 );
+			wp_redirect( home_url(), 302 ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- Home URL of this site.
 			exit;
 		}
 
@@ -88,7 +89,7 @@ class RQRC_Redirects {
 		$status_code   = ( '301' === $redirect_type ) ? 301 : 302;
 
 		// Perform redirect.
-		wp_redirect( $destination, $status_code );
+		wp_redirect( $destination, $status_code ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- Destinations are external sites by design.
 		exit;
 	}
 
@@ -143,5 +144,17 @@ class RQRC_Redirects {
 		$robots['nofollow'] = true;
 
 		return $robots;
+	}
+
+	/**
+	 * Remove QR code items from the core XML sitemaps.
+	 *
+	 * @param array $post_types Post types included in the sitemaps.
+	 * @return array Modified post types.
+	 */
+	public function exclude_from_sitemaps( $post_types ) {
+		unset( $post_types['rqrc_item'] );
+
+		return $post_types;
 	}
 }
