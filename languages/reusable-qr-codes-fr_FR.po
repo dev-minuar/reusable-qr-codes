@@ -1,246 +1,592 @@
-# Translation file for Reusable QR Codes - French (France)
-# Copyright (C) 2024 Minuar
-# This file is distributed under the same license as the Reusable QR Codes package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Reusable QR Codes 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/qr-code-redirect-manager\n"
-"POT-Creation-Date: 2024-10-23 00:00+0000\n"
-"PO-Revision-Date: 2024-10-23 00:00+0000\n"
+"Project-Id-Version: Reusable QR Codes 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/reusable-qr-codes\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
-"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-10-23 00:00+0000\n"
+"PO-Revision-Date: 2024-10-23 00:00+0000\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-# Post Type Labels
-msgid "QR Codes"
-msgstr "QR Codes"
-
+#: blocks/qr-code/editor.js:139
 msgid "QR Code"
 msgstr "QR Code"
 
+#: includes/class-post-type.php:58
 msgid "Add New"
 msgstr "Ajouter"
 
+#: includes/class-post-type.php:59
 msgid "Add New QR Code"
 msgstr "Ajouter un Nouveau QR Code"
 
+#: includes/class-post-type.php:60
 msgid "New QR Code"
 msgstr "Nouveau QR Code"
 
+#: includes/class-post-type.php:61
 msgid "Edit QR Code"
 msgstr "Modifier le QR Code"
 
+#: includes/class-post-type.php:62
 msgid "View QR Code"
 msgstr "Voir le QR Code"
 
+#: includes/class-post-type.php:63
 msgid "All QR Codes"
 msgstr "Tous les QR Codes"
 
+#: includes/class-post-type.php:64
 msgid "Search QR Codes"
 msgstr "Rechercher des QR Codes"
 
+#: includes/class-post-type.php:66
 msgid "No QR codes found."
 msgstr "Aucun QR code trouvé."
 
+#: includes/class-post-type.php:67
 msgid "No QR codes found in Trash."
 msgstr "Aucun QR code trouvé dans la corbeille."
 
-# Meta Box Labels
+#: includes/class-meta-boxes.php:53
 msgid "Destination URL"
 msgstr "URL de Destination"
 
+#: includes/class-meta-boxes.php:123
 msgid "Enter the URL where this QR code should redirect:"
 msgstr "Entrez l'URL vers laquelle ce QR code doit rediriger :"
 
+#: includes/class-meta-boxes.php:138
 msgid "This is where visitors will be redirected after scanning the QR code. You can change this anytime without reprinting the QR code."
 msgstr "C'est là que les visiteurs seront redirigés après avoir scanné le QR code. Vous pouvez modifier cela à tout moment sans réimprimer le QR code."
 
-msgid "QR Code URL:"
-msgstr "URL du QR Code :"
-
-msgid "This is the permanent URL encoded in your QR code. Share this QR code, and change the destination above anytime."
-msgstr "Ceci est l'URL permanente encodée dans votre QR code. Partagez ce QR code et modifiez la destination à tout moment."
-
+#: includes/class-meta-boxes.php:63
 msgid "Notes"
 msgstr "Notes"
 
+#: includes/class-meta-boxes.php:177
 msgid "Internal notes about this QR code (not visible to visitors):"
 msgstr "Notes internes sur ce QR code (non visibles pour les visiteurs) :"
 
+#: includes/class-meta-boxes.php:188
 msgid "Add any notes to help you remember where this QR code is used, when it was printed, or any other relevant information."
 msgstr "Ajoutez des notes pour vous aider à vous souvenir où ce QR code est utilisé, quand il a été imprimé, ou toute autre information pertinente."
 
+#: includes/class-meta-boxes.php:73
 msgid "QR Code Preview"
 msgstr "Aperçu du QR Code"
 
+#: includes/class-meta-boxes.php:207
 msgid "Not Published Yet"
 msgstr "Pas Encore Publié"
 
+#: includes/class-meta-boxes.php:208
 msgid "Your QR code will be generated after you publish this post."
 msgstr "Votre QR code sera généré après la publication de cet article."
 
+#: includes/class-meta-boxes.php:223
+#: includes/class-post-type.php:218
 msgid "Download PNG"
 msgstr "Télécharger PNG"
 
+#: includes/class-meta-boxes.php:226
+#: includes/class-post-type.php:227
 msgid "Download SVG"
 msgstr "Télécharger SVG"
 
-# Settings Page
+#: includes/class-meta-boxes.php:289
+#: includes/class-plugin.php:79
+#: includes/class-settings.php:53
 msgid "Settings"
 msgstr "Réglages"
 
+#: includes/class-settings.php:52
 msgid "QR Code Settings"
 msgstr "Paramètres des QR Codes"
 
+#: includes/class-settings.php:73
 msgid "QR Code Appearance"
 msgstr "Apparence du QR Code"
 
+#: includes/class-settings.php:225
 msgid "These settings control the default appearance of all QR codes."
 msgstr "Ces paramètres contrôlent l'apparence par défaut de tous les QR codes."
 
+#: includes/class-settings.php:80
 msgid "QR Code Color"
 msgstr "Couleur du QR Code"
 
+#: includes/class-settings.php:89
 msgid "Background Color"
 msgstr "Couleur d'Arrière-plan"
 
+#: includes/class-settings.php:98
 msgid "Dot Style"
 msgstr "Style de Points"
 
+#: includes/class-settings.php:265
 msgid "Square"
 msgstr "Carré"
 
+#: includes/class-settings.php:266
 msgid "Dots"
 msgstr "Points"
 
+#: includes/class-settings.php:267
 msgid "Rounded"
 msgstr "Arrondi"
 
+#: includes/class-settings.php:268
 msgid "Classy"
 msgstr "Élégant"
 
+#: includes/class-settings.php:269
 msgid "Classy Rounded"
 msgstr "Élégant Arrondi"
 
+#: includes/class-settings.php:280
 msgid "The style of dots used in the QR code pattern."
 msgstr "Le style des points utilisés dans le motif du QR code."
 
+#: includes/class-settings.php:106
 msgid "Display Size (px)"
 msgstr "Taille d'Affichage (px)"
 
+#: includes/class-settings.php:301
 msgid "Size of the QR code preview in admin (128-512px). Downloads are always high resolution."
 msgstr "Taille de l'aperçu du QR code dans l'admin (128-512px). Les téléchargements sont toujours en haute résolution."
 
+#: includes/class-settings.php:123
 msgid "Redirect Settings"
 msgstr "Paramètres de Redirection"
 
+#: includes/class-settings.php:234
 msgid "Configure how QR code redirects should behave."
 msgstr "Configurez le comportement des redirections de QR codes."
 
+#: includes/class-settings.php:130
 msgid "Redirect Type"
 msgstr "Type de Redirection"
 
+#: includes/class-settings.php:342
 msgid "302 Temporary (Recommended)"
 msgstr "302 Temporaire (Recommandé)"
 
+#: includes/class-settings.php:352
 msgid "301 Permanent"
 msgstr "301 Permanent"
 
+#: includes/class-settings.php:356
 msgid "Use 302 (temporary) since you may change destinations. 301 redirects are cached by browsers."
 msgstr "Utilisez 302 (temporaire) car vous pourriez changer les destinations. Les redirections 301 sont mises en cache par les navigateurs."
 
+#: includes/class-settings.php:196
 msgid "How It Works"
 msgstr "Comment Ça Marche"
 
+#: includes/class-settings.php:201
 msgid "Create a new QR Code and set a destination URL"
 msgstr "Créez un nouveau QR Code et définissez une URL de destination"
 
+#: includes/class-settings.php:202
 msgid "Download and print/share the QR code"
 msgstr "Téléchargez et imprimez/partagez le QR code"
 
+#: includes/class-settings.php:203
 msgid "Visitors scan the QR code and get redirected to your destination"
 msgstr "Les visiteurs scannent le QR code et sont redirigés vers votre destination"
 
+#: includes/class-settings.php:204
 msgid "Update the destination anytime without reprinting the QR code!"
 msgstr "Mettez à jour la destination à tout moment sans réimprimer le QR code !"
 
-# Update Messages
+#: includes/class-post-type.php:115
 msgid "QR Code updated successfully."
 msgstr "QR Code mis à jour avec succès."
 
+#: includes/class-post-type.php:116
 msgid "Field updated."
 msgstr "Champ mis à jour."
 
+#: includes/class-post-type.php:117
 msgid "Field deleted."
 msgstr "Champ supprimé."
 
+#: includes/class-post-type.php:118
 msgid "QR Code updated."
 msgstr "QR Code mis à jour."
 
+#. translators: %s: Revision date
+#: includes/class-post-type.php:121
+#, php-format
 msgid "QR Code restored to revision from %s."
 msgstr "QR Code restauré à la révision du %s."
 
+#: includes/class-post-type.php:124
 msgid "QR Code published successfully. Your QR code is now ready to use!"
 msgstr "QR Code publié avec succès. Votre QR code est maintenant prêt à être utilisé !"
 
+#: includes/class-post-type.php:125
 msgid "QR Code saved."
 msgstr "QR Code enregistré."
 
+#: includes/class-post-type.php:126
 msgid "QR Code submitted."
 msgstr "QR Code soumis."
 
+#. translators: %s: Scheduled date
+#: includes/class-post-type.php:129
+#, php-format
 msgid "QR Code scheduled for: <strong>%s</strong>"
 msgstr "QR Code programmé pour : <strong>%s</strong>"
 
+#: includes/class-post-type.php:132
 msgid "QR Code draft updated."
 msgstr "Brouillon de QR Code mis à jour."
 
-# Fallback Template
+#: templates/single-rqrc_item.php:61
 msgid "QR Code Not Configured"
 msgstr "QR Code Non Configuré"
 
+#: templates/single-rqrc_item.php:65
 msgid "This QR code does not have a destination URL configured yet."
 msgstr "Ce QR code n'a pas encore d'URL de destination configurée."
 
+#: templates/single-rqrc_item.php:71
 msgid "For Administrators:"
 msgstr "Pour les Administrateurs :"
 
+#: templates/single-rqrc_item.php:74
 msgid "You are seeing this message because no destination URL has been set for this QR code."
 msgstr "Vous voyez ce message car aucune URL de destination n'a été définie pour ce QR code."
 
+#: templates/single-rqrc_item.php:78
 msgid "Edit QR Code & Set Destination"
 msgstr "Modifier le QR Code et Définir la Destination"
 
+#: includes/class-meta-boxes.php:154
 msgid "QR Code is Active"
 msgstr "Le code QR est actif"
 
+#: includes/class-meta-boxes.php:158
 msgid "When inactive, this QR code will redirect to your homepage instead of the destination URL above."
 msgstr "Lorsqu'il est inactif, ce code QR redirigera vers votre page d'accueil au lieu de l'URL de destination ci-dessus."
 
+#: includes/class-post-type.php:149
 msgid "Status"
 msgstr "Statut"
 
+#: includes/class-post-type.php:151
 msgid "Destination"
 msgstr "Destination"
 
+#: includes/class-post-type.php:152
 msgid "Download"
 msgstr "Télécharger"
 
+#: includes/class-post-type.php:183
+#: includes/class-post-type.php:338
 msgid "Active"
 msgstr "Actif"
 
+#: includes/class-post-type.php:183
+#: includes/class-post-type.php:338
 msgid "Inactive"
 msgstr "Inactif"
 
+#: includes/class-post-type.php:204
 msgid "No destination set"
 msgstr "Aucune destination définie"
 
-msgid "Download PNG"
-msgstr "Télécharger PNG"
+#. Plugin Name of the plugin
+#: reusable-qr-codes.php
+msgid "Reusable QR Codes"
+msgstr "Reusable QR Codes"
 
-msgid "Download SVG"
-msgstr "Télécharger SVG"
+#. Plugin URI of the plugin
+#: reusable-qr-codes.php
+msgid "https://minuar.com/reusable-qr-codes"
+msgstr "https://minuar.com/reusable-qr-codes"
+
+#. Description of the plugin
+#: reusable-qr-codes.php
+msgid "Create reusable QR codes with changeable destinations. Perfect for museums, retail, events, and any place where physical QR codes need to stay relevant over time."
+msgstr "Créez des QR codes réutilisables dont la destination peut être modifiée. Idéal pour les musées, les commerces, les événements et tous les lieux où les QR codes imprimés doivent rester pertinents dans le temps."
+
+#. Author of the plugin
+#: reusable-qr-codes.php
+msgid "Minuar"
+msgstr "Minuar"
+
+#. Author URI of the plugin
+#: reusable-qr-codes.php
+msgid "https://minuar.com"
+msgstr "https://minuar.com"
+
+#: includes/class-block.php:181
+#: blocks/qr-code/editor.js:151
+msgid "Download QR code"
+msgstr "Télécharger le QR code"
+
+#: includes/class-meta-boxes.php:83
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/class-meta-boxes.php:93
+#: includes/class-post-type.php:150
+msgid "Scans"
+msgstr "Scans"
+
+#: includes/class-meta-boxes.php:185
+msgid "e.g., Location: Museum entrance, Printed: 2024-10-23, Purpose: Exhibition info..."
+msgstr "p. ex. Emplacement : entrée du musée, Imprimé : 23-10-2024, Objet : informations sur l'exposition…"
+
+#: includes/class-meta-boxes.php:247
+#: includes/class-scans.php:138
+msgid "Never scanned"
+msgstr "Jamais scanné"
+
+#. translators: %s: date and time of the last scan
+#: includes/class-meta-boxes.php:249
+#, php-format
+msgid "Last scan: %s"
+msgstr "Dernier scan : %s"
+
+#: includes/class-meta-boxes.php:253
+msgid "Counts scans by visitors. Logged-in users, bots and link previews are not counted."
+msgstr "Compte les scans des visiteurs. Les utilisateurs connectés, les robots et les aperçus de liens ne sont pas comptés."
+
+#: includes/class-meta-boxes.php:254
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: includes/class-meta-boxes.php:275
+msgid "No logo"
+msgstr "Pas de logo"
+
+#: includes/class-meta-boxes.php:281
+msgid "Site logo"
+msgstr "Logo du site"
+
+#. translators: %s: link to the settings page
+#: includes/class-meta-boxes.php:288
+#, php-format
+msgid "No site logo set. Add one in %s."
+msgstr "Aucun logo du site défini. Ajoutez-en un dans %s."
+
+#: includes/class-meta-boxes.php:298
+msgid "Custom image"
+msgstr "Image personnalisée"
+
+#: includes/class-meta-boxes.php:306
+msgid "Select Image"
+msgstr "Sélectionner une image"
+
+#: includes/class-meta-boxes.php:307
+#: includes/class-settings.php:319
+msgid "Remove"
+msgstr "Retirer"
+
+#: includes/class-meta-boxes.php:414
+#: includes/class-settings.php:396
+msgid "Select QR Code Logo"
+msgstr "Sélectionner le logo du QR code"
+
+#: includes/class-meta-boxes.php:415
+#: includes/class-settings.php:397
+msgid "Use this image"
+msgstr "Utiliser cette image"
+
+#: includes/class-meta-boxes.php:433
+msgid "Reset the scan count of this QR code to 0?"
+msgstr "Remettre à 0 le compteur de scans de ce QR code ?"
+
+#: includes/class-meta-boxes.php:434
+msgid "Could not reset the scan count. Please try again."
+msgstr "Impossible de réinitialiser le compteur de scans. Veuillez réessayer."
+
+#: includes/class-post-type.php:54
+msgctxt "Post type general name"
+msgid "QR Codes"
+msgstr "QR Codes"
+
+#: includes/class-post-type.php:55
+msgctxt "Post type singular name"
+msgid "QR Code"
+msgstr "QR Code"
+
+#: includes/class-post-type.php:56
+msgctxt "Admin Menu text"
+msgid "QR Codes"
+msgstr "QR Codes"
+
+#: includes/class-post-type.php:57
+msgctxt "Add New on Toolbar"
+msgid "QR Code"
+msgstr "QR Code"
+
+#: includes/class-post-type.php:65
+msgid "Parent QR Codes:"
+msgstr "QR Codes parents :"
+
+#: includes/class-post-type.php:68
+msgctxt "Overrides the \"Featured Image\" phrase"
+msgid "QR Code Image"
+msgstr "Image du QR code"
+
+#: includes/class-post-type.php:69
+msgctxt "Overrides the \"Set featured image\" phrase"
+msgid "Set QR code image"
+msgstr "Définir l'image du QR code"
+
+#: includes/class-post-type.php:70
+msgctxt "Overrides the \"Remove featured image\" phrase"
+msgid "Remove QR code image"
+msgstr "Retirer l'image du QR code"
+
+#: includes/class-post-type.php:71
+msgctxt "Overrides the \"Use as featured image\" phrase"
+msgid "Use as QR code image"
+msgstr "Utiliser comme image du QR code"
+
+#: includes/class-post-type.php:72
+msgctxt "The post type archive label used in nav menus"
+msgid "QR Code archives"
+msgstr "Archives des QR codes"
+
+#: includes/class-post-type.php:73
+msgctxt "Overrides the \"Insert into post\" phrase"
+msgid "Insert into QR code"
+msgstr "Insérer dans le QR code"
+
+#: includes/class-post-type.php:74
+msgctxt "Overrides the \"Uploaded to this post\" phrase"
+msgid "Uploaded to this QR code"
+msgstr "Téléversé sur ce QR code"
+
+#: includes/class-post-type.php:75
+msgctxt "Screen reader text for the filter links"
+msgid "Filter QR codes list"
+msgstr "Filtrer la liste des QR codes"
+
+#: includes/class-post-type.php:76
+msgctxt "Screen reader text for the pagination"
+msgid "QR codes list navigation"
+msgstr "Navigation de la liste des QR codes"
+
+#: includes/class-post-type.php:77
+msgctxt "Screen reader text for the items list"
+msgid "QR codes list"
+msgstr "Liste des QR codes"
+
+#: includes/class-post-type.php:130
+msgid "M j, Y @ g:i a"
+msgstr "j M Y, H:i"
+
+#: includes/class-post-type.php:300
+msgid "Post ID is required."
+msgstr "L'ID de l'article est obligatoire."
+
+#: includes/class-post-type.php:308
+msgid "Please wait before toggling again."
+msgstr "Veuillez patienter avant de basculer à nouveau."
+
+#: includes/class-post-type.php:314
+#: includes/class-scans.php:161
+msgid "You do not have permission to edit this QR code."
+msgstr "Vous n'avez pas l'autorisation de modifier ce QR code."
+
+#: includes/class-post-type.php:319
+msgid "Invalid post type."
+msgstr "Type de contenu non valide."
+
+#. translators: %s: time difference, e.g. "5 mins"
+#: includes/class-scans.php:143
+#, php-format
+msgid "Last: %s ago"
+msgstr "Dernier : il y a %s"
+
+#: includes/class-scans.php:157
+msgid "Invalid QR code."
+msgstr "QR code non valide."
+
+#: includes/class-settings.php:114
+msgid "Site Logo"
+msgstr "Logo du site"
+
+#: includes/class-settings.php:318
+msgid "Select Logo"
+msgstr "Sélectionner un logo"
+
+#: includes/class-settings.php:322
+msgid "Optional. Each QR code chooses whether to show this logo, a custom image or no logo. Square images work best."
+msgstr "Facultatif. Chaque QR code choisit d'afficher ce logo, une image personnalisée ou aucun logo. Les images carrées donnent les meilleurs résultats."
+
+#: blocks/qr-code/editor.js:46
+msgid "Select a QR code"
+msgstr "Sélectionnez un QR code"
+
+#: blocks/qr-code/editor.js:88
+msgid "QR code"
+msgstr "QR code"
+
+#: blocks/qr-code/editor.js:97
+msgid "QR code settings"
+msgstr "Réglages du QR code"
+
+#: blocks/qr-code/editor.js:100
+msgid "Size (px)"
+msgstr "Taille (px)"
+
+#: blocks/qr-code/editor.js:109
+msgid "Show caption"
+msgstr "Afficher la légende"
+
+#: blocks/qr-code/editor.js:116
+msgid "Caption"
+msgstr "Légende"
+
+#: blocks/qr-code/editor.js:117
+msgid "Leave empty to use the QR code title."
+msgstr "Laissez vide pour utiliser le titre du QR code."
+
+#: blocks/qr-code/editor.js:125
+msgid "Show download button"
+msgstr "Afficher le bouton de téléchargement"
+
+#: blocks/qr-code/editor.js:141
+msgid "Choose which QR code to show."
+msgstr "Choisissez le QR code à afficher."
+
+#: blocks/qr-code/editor.js:142
+msgid "No published QR codes yet. Create one under QR Codes first."
+msgstr "Aucun QR code publié pour l'instant. Créez-en un d'abord dans « QR Codes »."
+
+#: blocks/qr-code/block.json
+msgctxt "block title"
+msgid "QR Code"
+msgstr "QR Code"
+
+#: blocks/qr-code/block.json
+msgctxt "block description"
+msgid "Show one of your reusable QR codes."
+msgstr "Affiche l'un de vos QR codes réutilisables."
+
+#: blocks/qr-code/block.json
+msgctxt "block keyword"
+msgid "qr"
+msgstr "qr"
+
+#: blocks/qr-code/block.json
+msgctxt "block keyword"
+msgid "code"
+msgstr "code"
+
+#: blocks/qr-code/block.json
+msgctxt "block keyword"
+msgid "scan"
+msgstr "scan"
