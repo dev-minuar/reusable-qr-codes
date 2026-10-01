@@ -26,6 +26,16 @@ A free WordPress plugin on WordPress.org (https://wordpress.org/plugins/reusable
 - After changing strings, regenerate the POT and update the 3 translations.
 - Docs and specs go in `docs/`, which never ships (`.distignore`). The old 2024 project plan is in `docs/_archive/`.
 
+## Known follow-ups (parked 2026-10-01, none blocks a release)
+
+1. Scan counter: the bot pattern in `includes/class-scans.php` matches "Cubot" phones, so their scans are not counted. An invalid pattern from the `rqrc_bot_user_agent_pattern` filter counts the scan and raises a PHP warning; it should fall back to the default.
+2. Translations: the plugin never calls `load_plugin_textdomain`, and `wp_set_script_translations` gets no path. On WordPress versions before 7.x the bundled de/es/fr files may not load; pass the `languages/` path.
+3. Spanish uses both "Logo" and "logotipo" for the logo strings.
+4. Block: `localize_editor()` loads every QR code on each editor load; cap or cache it for sites with thousands of codes.
+5. Logo: switching a code away from "Custom image" forgets the chosen image.
+6. Screenshot 2 on WordPress.org shows a `localhost` permalink.
+7. Publishing workflows (`dev-minuar/wporg-release`): `actions/checkout` v4.4.0 logs a Node 20 deprecation warning; bump the pin when v5 is current.
+
 ## Releasing
 
 IF you are releasing or updating the WordPress.org page → read `../AGENTS.md` (the SVN folder guide). In short: bump the version in 3 places, push `main`, then push a `vX.Y.Z` tag. GitHub Actions (`dev-minuar/wporg-release@v1`) runs the checks and waits for approval in the `wordpress-org` environment before it publishes.
