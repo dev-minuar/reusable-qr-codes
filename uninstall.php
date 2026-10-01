@@ -23,7 +23,7 @@ function rqrc_delete_all_posts() {
 		array(
 			'post_type'      => 'rqrc_item',
 			'posts_per_page' => -1,
-			'post_status'    => 'any',
+			'post_status'    => array_keys( get_post_stati() ),
 			'fields'         => 'ids',
 		)
 	);
