@@ -11,6 +11,9 @@
 
 # Development files
 .distignore
+.wordpress-org
+.wporg-dist
+.wp-env.json
 .editorconfig
 .eslintrc
 .phpcs.xml.dist

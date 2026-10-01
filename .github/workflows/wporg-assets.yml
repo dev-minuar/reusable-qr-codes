@@ -1,0 +1,9 @@
+name: WordPress.org readme and assets
+
+on:
+  workflow_dispatch:
+
+jobs:
+  assets:
+    uses: dev-minuar/wporg-release/.github/workflows/assets.yml@v1
+    secrets: inherit
