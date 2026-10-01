@@ -35,6 +35,7 @@ gulpfile.js
 
 # Documentation (keep CLAUDE.md for reference, but exclude from .org)
 CLAUDE.md
+AGENTS.md
 .claude
 
 # Test files
