@@ -2,63 +2,63 @@
 # Files and directories listed here will not be included in the WordPress.org release
 
 # Git files
-.git
-.gitignore
-.gitattributes
+/.git
+/.gitignore
+/.gitattributes
 
 # GitHub files
-.github
+/.github
 
 # Development files
-.distignore
-.wordpress-org
-.wporg-dist
-.wp-env.json
-.editorconfig
-.eslintrc
-.phpcs.xml.dist
-phpcs.xml
-.phpunit.xml.dist
-phpunit.xml
+/.distignore
+/.wordpress-org
+/.wporg-dist
+/.wp-env.json
+/.editorconfig
+/.eslintrc
+/.phpcs.xml.dist
+/phpcs.xml
+/.phpunit.xml.dist
+/phpunit.xml
 
 # IDE files
-.idea
-.vscode
+/.idea
+/.vscode
 .DS_Store
 *.sublime-project
 *.sublime-workspace
 
 # Node/Build files
-node_modules
-package.json
-package-lock.json
-webpack.config.js
-Gruntfile.js
-gulpfile.js
+/node_modules
+/package.json
+/package-lock.json
+/webpack.config.js
+/Gruntfile.js
+/gulpfile.js
 
 # Documentation (keep CLAUDE.md for reference, but exclude from .org)
-CLAUDE.md
-AGENTS.md
-.superpowers
-docs
-.claude
+/CLAUDE.md
+/AGENTS.md
+/.superpowers
+/docs
+/.claude
 
 # Test files
-tests
-bin
-phpunit.xml
-.phpunit.result.cache
+/tests
+/bin
+/phpunit.xml
+/.phpunit.result.cache
 
 # CI/CD
-.travis.yml
-.gitlab-ci.yml
-circle.yml
-.circleci
+/.travis.yml
+/.gitlab-ci.yml
+/circle.yml
+/.circleci
 
 # Composer
-composer.json
-composer.lock
-vendor
+/composer.json
+/composer.lock
+/vendor
 
 # Misc
 *.log
