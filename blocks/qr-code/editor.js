@@ -82,7 +82,7 @@
 			var a = props.attributes;
 			var code = findCode( a.qrId );
 			// One call per render, whichever branch shows (hooks must not be conditional).
-				var blockProps = useBlockProps( code ? { style: { width: a.size + 'px' } } : {} );
+			var blockProps = useBlockProps( code ? { style: { width: a.size + 'px' } } : {} );
 
 			var picker = el( SelectControl, {
 				label: __( 'QR code', 'reusable-qr-codes' ),
