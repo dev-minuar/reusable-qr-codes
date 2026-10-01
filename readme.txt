@@ -122,8 +122,13 @@ Not currently. This is planned for a future version.
 == Changelog ==
 
 = 1.0.2 =
+* Fix: QR code URLs no longer appear in site search results or the XML sitemap
+* Fix: The "not configured" page now displays correctly on block themes
+* Fix: Removed a duplicate robots meta tag on the "not configured" page
+* Fix: Download filenames now handle accented letters, apostrophes and non-Latin titles
 * Tweak: Tested up to WordPress 7.1
-* Tweak: Removed references to a Premium version from the readme
+* Tweak: Removed references to a Premium version
+* Tweak: Added an FAQ entry explaining that deleting the plugin removes all QR codes
 
 = 1.0.0 =
 * Initial release
