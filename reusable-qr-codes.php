@@ -3,7 +3,7 @@
  * Plugin Name: Reusable QR Codes
  * Plugin URI: https://minuar.com/reusable-qr-codes
  * Description: Create reusable QR codes with changeable destinations. Perfect for museums, retail, events, and any place where physical QR codes need to stay relevant over time.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Minuar
@@ -24,7 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Current plugin version.
  */
-define( 'RQRC_VERSION', '1.0.1' );
+define( 'RQRC_VERSION', '1.0.2' );
 
 /**
  * Plugin root file.

@@ -2,9 +2,9 @@
 Contributors: minuar
 Tags: qr code, redirect, dynamic qr, qr manager, url shortener
 Requires at least: 5.8
-Tested up to: 6.8
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,18 +46,6 @@ The QR code contains a permanent link to your WordPress site, which then redirec
 * ✅ **Translation Ready** - Fully internationalized
 * ✅ **Clean Code** - WordPress coding standards compliant
 
-= Premium Features (Coming Soon) =
-
-* 📊 **Analytics Dashboard** - Track scans, dates, and trends
-* 🎨 **Advanced Customization** - Logos, gradients, eye styles, templates
-* 📦 **Bulk Operations** - Download multiple QR codes, batch management
-* ⏰ **Scheduled Destinations** - Time-based URL changes
-* 🔒 **Password Protection** - Secure QR codes with passwords
-* 📅 **Expiration Dates** - Auto-expire QR codes
-* 🔗 **Shortcodes** - Display QR codes anywhere on your site
-
-[Learn more about Premium →](https://minuar.com/reusable-qr-codes/premium)
-
 = Technical Details =
 
 * Lightweight and performant - minimal database impact
@@ -77,7 +65,7 @@ The QR code contains a permanent link to your WordPress site, which then redirec
 
 = Do I need any external services or API keys? =
 
-No! This plugin is completely self-contained and works entirely within your WordPress installation. No external dependencies, no API keys, no recurring fees for the free version.
+No! This plugin is completely self-contained and works entirely within your WordPress installation. No external dependencies, no API keys, no recurring fees.
 
 = Can I really change where the QR code points without reprinting it? =
 
@@ -97,11 +85,11 @@ No. The plugin is very lightweight and only loads assets when needed. The redire
 
 = Can I use my own logo in the QR code? =
 
-Not in the free version. This feature is available in the Premium version.
+No. The QR codes support custom colors and dot styles, but not logos.
 
 = Can I track how many times a QR code was scanned? =
 
-Not in the free version. Analytics and scan tracking are available in the Premium version.
+No. The plugin does not track scans, which keeps it privacy-friendly.
 
 = Does this work with block themes? =
 
@@ -109,7 +97,7 @@ Yes! The plugin works with both classic and block themes.
 
 = Can I display QR codes on the frontend? =
 
-The free version is focused on backend management and downloads. Frontend display via shortcodes is available in the Premium version.
+No. The plugin focuses on backend management and downloads. Download the PNG or SVG and add it to any page as an image.
 
 = What happens if I delete a QR code post? =
 
@@ -128,6 +116,10 @@ Not currently. This is planned for a future version.
 5. Frontend fallback view when no destination is set
 
 == Changelog ==
+
+= 1.0.2 =
+* Tweak: Tested up to WordPress 7.1
+* Tweak: Removed references to a Premium version from the readme
 
 = 1.0.0 =
 * Initial release
@@ -153,13 +145,10 @@ This plugin does not:
 * Track users
 * Store IP addresses
 
-The free version is completely privacy-friendly. Premium features like analytics will clearly disclose what data is collected.
-
 == Support ==
 
 For support, feature requests, or bug reports:
-* Free version: [WordPress.org support forums](https://wordpress.org/support/plugin/reusable-qr-codes/)
-* Premium version: [Premium Support](https://minuar.com/reusable-qr-codes/support)
+* [WordPress.org support forums](https://wordpress.org/support/plugin/reusable-qr-codes/)
 
 == Credits ==
 
