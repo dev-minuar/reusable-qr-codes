@@ -103,6 +103,10 @@ No. The plugin focuses on backend management and downloads. Download the PNG or 
 
 The QR code will stop working - visitors will see a 404 error. Only delete QR codes you're sure you don't need anymore.
 
+= What happens if I uninstall the plugin? =
+
+Deleting the plugin from the Plugins screen permanently removes all QR codes and settings, so every printed QR code stops working. Deactivating the plugin keeps your data.
+
 = Can I export/import QR codes? =
 
 Not currently. This is planned for a future version.
