@@ -246,7 +246,7 @@ class RQRC_Meta_Boxes {
 					'' === $last
 						? __( 'Never scanned', 'reusable-qr-codes' )
 						/* translators: %s: date and time of the last scan */
-						: sprintf( __( 'Last scan: %s', 'reusable-qr-codes' ), get_date_from_gmt( $last, get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) )
+						: sprintf( __( 'Last scan: %s', 'reusable-qr-codes' ), wp_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), strtotime( $last . ' UTC' ) ) )
 				);
 				?>
 			</p>
