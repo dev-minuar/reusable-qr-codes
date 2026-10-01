@@ -125,10 +125,7 @@
 	 * Generate and display QR code.
 	 */
 	function generateQRCode() {
-		$('#rqrc-qrcode').empty();
-
-		var qrCodeDisplay = new QRCodeStyling(rqrcQr.buildOptions(currentConfig()));
-		qrCodeDisplay.append(document.getElementById('rqrc-qrcode'));
+		rqrcQr.draw(currentConfig(), document.getElementById('rqrc-qrcode'));
 	}
 
 	/**

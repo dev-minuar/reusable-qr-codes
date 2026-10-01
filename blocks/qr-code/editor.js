@@ -64,15 +64,14 @@
 			if ( ! node ) {
 				return;
 			}
-			node.innerHTML = '';
-			new window.QRCodeStyling( window.rqrcQr.buildOptions( {
+			window.rqrcQr.draw( {
 				data: props.code.permalink,
 				size: props.size,
 				color: data.color,
 				bgColor: data.bgColor,
 				dotStyle: data.dotStyle,
 				logoUrl: props.code.logoUrl
-			} ) ).append( node );
+			}, node );
 		}, [ props.code.permalink, props.code.logoUrl, props.size ] );
 
 		return el( 'div', { ref: ref, className: 'rqrc-block-qr' } );

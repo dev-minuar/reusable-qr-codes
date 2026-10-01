@@ -21,8 +21,7 @@
 				return;
 			}
 
-			box.innerHTML = '';
-			new window.QRCodeStyling( window.rqrcQr.buildOptions( cfg ) ).append( box );
+			window.rqrcQr.draw( cfg, box );
 
 			var figure = box.closest( 'figure' );
 			var button = figure ? figure.querySelector( '.rqrc-block-download' ) : null;
