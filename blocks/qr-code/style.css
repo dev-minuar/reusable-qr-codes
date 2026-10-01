@@ -1,0 +1,33 @@
+/* QR Code block */
+.wp-block-reusable-qr-codes-qr-code {
+	max-width: 100%;
+	margin-top: 0;
+}
+
+.wp-block-reusable-qr-codes-qr-code.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-block-reusable-qr-codes-qr-code .rqrc-block-qr {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+}
+
+.wp-block-reusable-qr-codes-qr-code .rqrc-block-qr canvas,
+.wp-block-reusable-qr-codes-qr-code .rqrc-block-qr svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.wp-block-reusable-qr-codes-qr-code figcaption {
+	margin-top: 0.5em;
+	text-align: center;
+}
+
+.wp-block-reusable-qr-codes-qr-code .rqrc-block-download {
+	display: block;
+	margin: 0.75em auto 0;
+	cursor: pointer;
+}

@@ -61,6 +61,7 @@ require_once RQRC_PLUGIN_DIR . 'includes/class-post-type.php';
 require_once RQRC_PLUGIN_DIR . 'includes/class-meta-boxes.php';
 require_once RQRC_PLUGIN_DIR . 'includes/class-redirects.php';
 require_once RQRC_PLUGIN_DIR . 'includes/class-scans.php';
+require_once RQRC_PLUGIN_DIR . 'includes/class-block.php';
 require_once RQRC_PLUGIN_DIR . 'includes/class-settings.php';
 
 /**
@@ -72,6 +73,7 @@ function rqrc_init() {
 	RQRC_Meta_Boxes::get_instance();
 	RQRC_Redirects::get_instance();
 	RQRC_Scans::get_instance();
+	RQRC_Block::get_instance();
 	RQRC_Settings::get_instance();
 }
 add_action( 'plugins_loaded', 'rqrc_init' );

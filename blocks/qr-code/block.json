@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "reusable-qr-codes/qr-code",
+	"title": "QR Code",
+	"category": "widgets",
+	"icon": "screenoptions",
+	"description": "Show one of your reusable QR codes.",
+	"keywords": [ "qr", "code", "scan" ],
+	"textdomain": "reusable-qr-codes",
+	"attributes": {
+		"qrId": { "type": "number", "default": 0 },
+		"size": { "type": "number", "default": 200 },
+		"showCaption": { "type": "boolean", "default": false },
+		"caption": { "type": "string", "default": "" },
+		"showDownload": { "type": "boolean", "default": false }
+	},
+	"supports": {
+		"align": [ "left", "center", "right" ],
+		"html": false
+	},
+	"editorScript": "rqrc-block-editor",
+	"style": "rqrc-block"
+}
